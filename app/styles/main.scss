@@ -1,0 +1,191 @@
+/********* Variables *********/
+$border-nav: #f5f8fc; //opacify(#101c2e, .9);
+$color-nav: #e9eef7;//#eef2f9;
+$color-nav-text: black;
+$box-shadow-nav: 0px 3px 1px 1px rgba(122,102,108, .89);
+
+/********** Type **********/
+ 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+h1 {
+    font-size: 120%;   
+}
+
+/********** Extends **********/
+
+
+/********* Layout **********/
+
+%g-1 {width: 100%;}
+
+%g-1-3 {width: 33%;}
+
+%g-2-3 {width: 66%;}
+
+%g-1-4 {width: 25%;}  
+
+%g-2-4 {width: 50%;}  
+
+%g-3-4 {width: 75%;}
+
+%g-1-8 {width: 12.5%;}
+
+%g-2-8 {width: 25%;}
+
+%g-3-8 {width: 37.5%;}
+
+%g-4-8 {width: 50%;}
+
+%g-5-8 {width: 62.5%;}
+
+%g-6-8 {width: 75%;}
+
+%g-7-8 {width: 87.5%;}
+
+%g-1-12 {width: 8.33%;}
+
+%g-2-12 {width: 16.66%;}
+
+%g-3-12 {width: 24.96%;}
+
+%g-4-12 {width: 33.32%;}
+
+%g-5-12 {width: 41.65%;}
+
+%g-6-12 {width: 49.98%;}
+
+%g-7-12 {width: 58.31%;}
+
+%g-8-12 {width: 66.64%;}
+
+%g-9-12 {width: 74.97%;}
+
+%g-10-12 {width: 83.3%;}
+
+%g-11-12 {width: 91.63%;}
+
+%g-first {padding-left: .5em;}
+
+%g-last {padding-right: .5em;}
+
+/********** Animations/Tranforms/Transitions **********/
+
+
+
+/********** Mixins/ Functions **********/
+
+@mixin mq($size) {
+  @if $size == xs {
+    @media screen and (min-width: $bp-xs) {@content}}
+  @else if $size == sm {
+    @media screen and (min-width: $bp-sm) {@content}}
+  @else if $size == m {
+    @media screen and (min-width: $bp-m) {@content}}
+  @else if $size == ml {
+    @media screen and (min-width: $bp-xs) and (max-width: $bp-lg) {@content}}  
+  @else if $size == lg {
+    @media screen and (min-width: $bp-lg) {@content}}
+  @else if $size == xl {
+    @media screen and (min-width: $bp-xl) {@content}}
+  @else if $size == xxl {
+    @media screen and (min-width: $bp-xxl) {@content}}
+  }
+
+@mixin li ($style) {
+  @if ($style == float) {
+    float:right;
+    margin-left: 2%;
+  }
+  
+  @else if ($style == inline){
+     display: inline;
+     margin-right: 2%;
+  }
+}
+
+@mixin dimensions($width, $height: $width){
+    width: $width;  
+    height: $height;
+}
+
+/********** Base **********/
+
+* {box-sizing: border-box;}
+
+body {
+    background: #fafafa;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 100%;
+    line-height: 1.5em;
+    color: #333;
+}
+
+header {
+    background: teal;
+    color: #fff;
+    line-height: 5em;
+    text-align: center;
+      li {list-style: none;}
+      li:last-child {
+          position: absolute;
+          top: 0;
+          right: .5em;
+          font-size: 2em;
+          font-weight: 700;
+          &:before {content: '≡';}
+      }    
+} 
+
+nav {
+    background: $color-nav;
+    color: $color-nav-text;
+    width: 13em;
+    margin-left: -13em;
+    position: absolute;
+    top: 5em;
+    border-radius: .015em;
+    bottom: 0;
+    box-shadow: $box-shadow-nav;
+    transition: margin-left .6s ease;
+      li{
+          border-bottom: 1px solid $border-nav;
+          //border-right: 1px solid $border-nav;
+          height: 5em;
+          list-style: none;
+          padding: 2em;
+          //text-align: right;
+          &:first-child {
+              background: darken(#ccc, 10%);}
+      }
+    a{text-decoration: none;
+      color: $color-nav-text;
+    }
+}
+
+.slideNav {
+  margin-left: 0;
+}
+
+.gn{display: none;}
+
+section{
+  margin: auto;
+  //background: darkred;
+
+}
+
+.map {
+  //@include dimensions(10em);
+  background: green;
+  height: 19em;
+}
+
+.list {
+  background: blue;
+  height: 15em;
+}
+
+
+
+
